@@ -1,13 +1,13 @@
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from flask_login import login_required, current_user, login_user, logout_user
 from models import login, db, UserModel
 
 app = Flask(__name__)
 
 login.init_app(app)
-login.login_view = 'login'
-login.logout_view = 'logout'
+#login.login_view = 'login'
+#login.logout_view = 'logout'
 
 app.config['DEBUG'] = True
 
@@ -37,10 +37,21 @@ def login():
 
     if request.method == 'POST':
         username = request.form['username']
-        user = UserModel.query.filter_by(username = username).first()
-        if user is not None and user.check_password(request.form['password']):
-            login_user(user)
-            return redirect('/blog')
+        password = request.form['password']
+
+        if username != 'admin' or password != 'adminpass':
+            error = 'Invalid Credentials. Please try again.'
+            return error
+        else:
+            session['logged_in'] = True
+            return redirect('/')
+
+#
+#   CAN'T MAKE THIS WORK!
+#        user = UserModel.query.filter_by(username = username).first()
+#        if user is not None and user.check_password(request.form['password']):
+#            login_user(user)
+#            return redirect('/blog')
 
     return render_template('blog.html')
 
@@ -59,7 +70,6 @@ def register():
             return("Email already in our database!")
 
         user = UserModel(username=username, password=password, cvr=cvr, email=email)
-        user.set_password(password)
         db.session.add(user)
         db.session.commit()
         return 'Successfully inserted data!'
