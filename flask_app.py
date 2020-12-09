@@ -1,6 +1,6 @@
 
-from flask import Flask, render_template, request, redirect, session, url_for
-from flask_login import login_required, current_user, login_user, logout_user
+from flask import Flask, render_template, request, redirect, session, url_for, flash
+from functools import wraps
 from models import login, db, UserModel
 
 app = Flask(__name__)
@@ -24,28 +24,44 @@ db.init_app(app)
 
 app.secret_key = 'c8skRkkMostrhqioIWlC785ZnJEcvuFS'
 
-@app.route('/', methods=['GET', 'POST'])
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash('You need to login first.')
+            return redirect(url_for('login'))
+    return wrap
+
+@app.route('/')
+@login_required
+def home():
+    return render_template('index.html')
+
+@app.route('/welcome')
+def welcome():
+    return render_template('welcome.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     """Login header signs in automatically. Fix it"""
     error = None
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        if username != 'admin' or password != 'adminpass':
+        if request.form['username'] != 'admin' or request.form['password'] != 'adminpass':
             error = 'Invalid Credentials. Please try again.'
-            return render_template('index.html', error=error)
         else:
             session['logged_in'] = True
-            return redirect(url_for('profile'))
+            flash('You were logged in')
+            return redirect(url_for('home'))
+    return render_template('login.html', error=error)
 
-#
 #   CAN'T MAKE THIS WORK!
 #        user = UserModel.query.filter_by(username=username, password=password).all()
 #        if user is not None:
 #            login_user(user)
 #            return redirect('/profile')
-    return render_template('index.html')
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -70,24 +86,12 @@ def register():
     return render_template('register.html')
 
 @app.route('/logout')
+@login_required
 def logout():
     """Logout for users"""
-    logout_user()
-    return 'You have successfully logged out!'
-    session['logged_in'] = False
+    session.pop('logged_in', None)
+    flash('You were logged out.')
+    return redirect(url_for('welcome'))
 
-#@app.route('/blog')
-#@login_required
-#def blog():
-#    """Check this out... weird problem"""
-#    if current_user.is_authenticated:
-#        return render_template('blog.html')
-#    else:
-#        session['logged_in'] = False
-#        return render_template('index.html')
-
-@app.route('/profile')
-def profile():
-    return render_template('profile.html')
 
 
