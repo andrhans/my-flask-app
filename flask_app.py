@@ -19,6 +19,7 @@ SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://{username}:{password}@{hostnam
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db.init_app(app)
 
 app.secret_key = 'c8skRkkMostrhqioIWlC785ZnJEcvuFS'
 
@@ -40,32 +41,31 @@ def login():
             login_user(user)
             return redirect('/blog')
 
-    return render_template('index.html')
+    return render_template('blog.html')
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
-    if current_user.is_authenticated:
-        return redirect('/blog')
+    if request.method == 'GET':
+        return render_template('register.html')
 
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        email = request.form['email']
         cvr = request.form['cvr']
+        email = request.form['email']
 
-        if UserModel.query.filter_by(email=email).first():
+        if UserModel.query.filter_by(username=username).first():
             return("Email already in our database!")
 
-        user = UserModel(email=email, username=username, cvr=cvr)
+        user = UserModel(username=username, password=password, cvr=cvr, email=email)
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
-        return redirect('/')
+        return 'Successfully inserted data!'
     return render_template('register.html')
 
 @app.route('/logout')
-@login_required
 def logout():
     logout_user()
-    return redirect('/blog')
+    return redirect('index.html')
 
