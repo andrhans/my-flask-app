@@ -31,10 +31,13 @@
 					<i class="fas fa-building"></i>
 				</label>
 				<input type="text" name="cvr" placeholder="CVR number" id="cvr" required>
-				<p>Already have an account?</p><br>
-			    <p><a href="{{url_for('login')}}">Login Here</a></p>
 				<input type="submit" value="Register">
 			</form>
 		</div>
+		{% if error %}
+            <div class="error">
+                Error:{{ error }}
+            </div>
+        {% endif %}
 	</body>
 </html>

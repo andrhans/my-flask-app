@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, url_for
 from flask_login import login_required, current_user, login_user, logout_user
 from models import login, db, UserModel
 
@@ -24,40 +24,28 @@ db.init_app(app)
 
 app.secret_key = 'c8skRkkMostrhqioIWlC785ZnJEcvuFS'
 
-@app.route('/blog')
-@login_required
-def blog():
-    if current_user.is_authenticated:
-        return render_template('blog.html')
-    else:
-        session['logged_in'] = False
-        return redirect('/')
-
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     """Login header signs in automatically. Fix it"""
-    if current_user.is_authenticated:
-        return redirect('/blog')
-
+    error = None
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
         if username != 'admin' or password != 'adminpass':
             error = 'Invalid Credentials. Please try again.'
-            return error
+            return render_template('index.html', error=error)
         else:
             session['logged_in'] = True
-            return redirect('/')
+            return redirect(url_for('profile'))
 
 #
 #   CAN'T MAKE THIS WORK!
-#        user = UserModel.query.filter_by(username = username).first()
-#        if user is not None and user.check_password(request.form['password']):
+#        user = UserModel.query.filter_by(username=username, password=password).all()
+#        if user is not None:
 #            login_user(user)
-#            return redirect('/blog')
-
-    return render_template('blog.html')
+#            return redirect('/profile')
+    return render_template('index.html')
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -72,7 +60,8 @@ def register():
         email = request.form['email']
 
         if UserModel.query.filter_by(username=username).first():
-            return("Email already in our database!")
+            error = 'username already in our database!'
+            return render_template('register.html', error=error)
 
         user = UserModel(username=username, password=password, cvr=cvr, email=email)
         db.session.add(user)
@@ -82,7 +71,23 @@ def register():
 
 @app.route('/logout')
 def logout():
-    """Logout users"""
+    """Logout for users"""
     logout_user()
-    return redirect('/')
+    return 'You have successfully logged out!'
+    session['logged_in'] = False
+
+#@app.route('/blog')
+#@login_required
+#def blog():
+#    """Check this out... weird problem"""
+#    if current_user.is_authenticated:
+#        return render_template('blog.html')
+#    else:
+#        session['logged_in'] = False
+#        return render_template('index.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
 
