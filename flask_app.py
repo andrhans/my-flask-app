@@ -35,6 +35,7 @@ def blog():
 
 @app.route('/', methods=['POST', 'GET'])
 def login():
+    """Login header signs in automatically. Fix it"""
     if current_user.is_authenticated:
         return redirect('/blog')
 
@@ -60,6 +61,7 @@ def login():
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
+    """Register new users successfully"""
     if request.method == 'GET':
         return render_template('register.html')
 
@@ -80,6 +82,7 @@ def register():
 
 @app.route('/logout')
 def logout():
+    """Logout users"""
     logout_user()
-    return render_template('index.html')
+    return redirect('/')
 
