@@ -29,6 +29,9 @@ app.secret_key = 'c8skRkkMostrhqioIWlC785ZnJEcvuFS'
 def blog():
     if current_user.is_authenticated:
         return render_template('blog.html')
+    else:
+        session['logged_in'] = False
+        return redirect('/')
 
 @app.route('/', methods=['POST', 'GET'])
 def login():
