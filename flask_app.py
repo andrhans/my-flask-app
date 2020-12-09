@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 login.init_app(app)
 login.login_view = 'login'
+login.logout_view = 'logout'
 
 app.config['DEBUG'] = True
 
@@ -67,5 +68,5 @@ def register():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect('index.html')
+    return render_template('index.html')
 
