@@ -43,9 +43,6 @@ def home():
 def welcome():
     return render_template('welcome.html')
 
-#@app.route('/', methods=['GET', 'POST'])
-#def car:
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """Login for registered user admin... finish research..."""
@@ -55,9 +52,9 @@ def login():
             error = 'Invalid Credentials. Please try again.'
 
 #   CAN'T MAKE THIS WORK WITH DATABASE! LOOK IT UP
-#        user = UserModel.query.filter_by(username=username, password=password).all()
-#        if user is not None:
-#            login_user(user)
+#        user = UserModel.query.filter_by(username=username).first()
+#        if user is None or not user.check_password(password):
+#            return user
 
         else:
             session['logged_in'] = True
@@ -78,7 +75,7 @@ def register():
         email = request.form['email']
 
         if UserModel.query.filter_by(username=username).first():
-            error = 'username already in our database!'
+            error = 'Username already in our database!'
             return render_template('register.html', error=error)
 
         user = UserModel(username=username, password=password, cvr=cvr, email=email)
