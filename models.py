@@ -9,10 +9,10 @@ class UserModel(db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(128))
+    username = db.Column(db.String(128), nullable=False)
     password = db.Column(db.String(128))
-    cvr = db.Column(db.String(80))
-    email = db.Column(db.String(128))
+    cvr = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(128), nullable=False)
 
     def __init__(self, username, password, cvr, email):
         self.username = username
@@ -21,7 +21,7 @@ class UserModel(db.Model):
         self.email = email
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<UserModel %r>' % self.username
 
 @login.user_loader
 def load_user(id):
@@ -31,18 +31,18 @@ class CarModel(db.Model):
     __tablename__= "cars"
 
     id = db.Column(db.Integer, primary_key=True)
-    registration_id = db.Column(db.String(128),unique=True)
-    brand = db.Column(db.String(80))
-    model = db.Column(db.String(80))
+    registration_id = db.Column(db.String(128), nullable=False, unique=True)
+    brand = db.Column(db.String(80), nullable=False)
+    model = db.Column(db.String(80), nullable=False)
     version = db.Column(db.String(128))
-    fuel_type = db.Column(db.String(80))
-    model_year = db.Column(db.Integer)
-    engine_power = db.Column(db.Integer)
+    fuel_type = db.Column(db.String(80), nullable=False)
+    model_year = db.Column(db.Integer, nullable=False)
+    engine_power = db.Column(db.Integer, nullable=False)
     fuel_efficiency = db.Column(db.String(80))
     engine_cylinders = db.Column(db.Integer)
     top_speed = db.Column(db.Integer)
-    doors = db.Column(db.Integer)
-    minimum_seats = db.Column(db.Integer)
+    doors = db.Column(db.Integer, nullable=False)
+    minimum_seats = db.Column(db.Integer, nullable=False)
     axles = db.Column(db.Integer)
     drive_axles = db.Column(db.Integer)
 
@@ -62,4 +62,5 @@ class CarModel(db.Model):
         self.axles = axles
         self.drive_axles = drive_axles
 
-#Create db and review car views
+    def __repr__(self):
+        return '<CarModel %r>' % self.registration_id
