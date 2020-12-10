@@ -10,6 +10,6 @@ further implementation can concern:
 * clean up of useless code
 * implementation of 'good practices' within Flask architecture
 * Search by VIN number
-* Database redisign on models.py
+* Database redesign on models.py
 * Notifications
 * ideas that don't fall into the proof-of-concept prototype
