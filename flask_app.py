@@ -43,9 +43,12 @@ def home():
 def welcome():
     return render_template('welcome.html')
 
+#@app.route('/', methods=['GET', 'POST'])
+#def car:
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    """Login for registered users"""
+    """Login for registered user admin... finish research..."""
     error = None
     if request.method == 'POST':
         if request.form['username'] != 'admin' or request.form['password'] != 'adminpass':

@@ -1,0 +1,28 @@
+
+Discover Flask:
+https://realpython.com/introduction-to-flask-part-2-creating-a-login-page/#add-a-route-to-handle-requests-to-the-login-url
+https://www.youtube.com/watch?v=_vrAjAHhUsA
+
+Flask-SQLAlchemy:
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
+
+Flask-Login:
+https://flask-login.readthedocs.io/en/latest/#login-example
+    Mixins:
+    https://flask-login.readthedocs.io/en/latest/_modules/flask_login/mixins.html#AnonymousUserMixin
+
+Flask HTTP methods:
+https://pythonbasics.org/flask-http-methods/
+
+Flask Login Required Decorator:
+https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/#login-required-decorator
+
+Message flashing:
+https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/
+
+MotorAPI:
+https://www.motorapi.dk/
+
+Pythonanywhere: connecting to MySQL
+https://danielcorcoranssql.wordpress.com/2019/04/24/pythonanywhere-connecting-to-mysql-creating-virtual-environment/
+

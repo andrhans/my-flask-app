@@ -9,11 +9,13 @@
 	<body>
 		<div class="container">
 			<h1>Welcome to the Car App!</h1>
+			<br>
+            <p>Nothing breaks so far... Click <a href="/2">here</a></p>
             <br>
             <p>Click <a href="/logout">here</a> to logout.</p>
-            {% for message in get_flashed_messages() %}
-                {{ message }}
-            {% endfor %}
 		</div>
+		{% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
 	</body>
 </html>
