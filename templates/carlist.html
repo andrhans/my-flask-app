@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+		<title>Car Database</title>
+    </head>
+    <body>
+        <div class="container">
+            {% for car in cars %}
+            <h3>{{car}}</h3>
+            {% endfor %}
+            <p>Click <a href="/find">here</a> to find a car.</p>
+            <br>
+            <p>Click <a href="/welcome">here</a> to go to the index welcome page.</p>
+        </div>
+        {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+    </body>
+</html>

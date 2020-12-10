@@ -62,4 +62,4 @@ class CarModel(db.Model):
         self.axles = axles
         self.drive_axles = drive_axles
 
-
+#Create db and then code the create view

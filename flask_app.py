@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 from functools import wraps
-from models import login, db, UserModel
+from models import login, db, UserModel, CarModel
 
 app = Flask(__name__)
 
@@ -37,11 +37,24 @@ def login_required(f):
 @app.route('/')
 @login_required
 def home():
+    """Logout redirection"""
     return render_template('index.html')
 
 @app.route('/welcome')
 def welcome():
+    """Display routing possibilities"""
     return render_template('welcome.html')
+
+@app.route('/find')
+def find():
+    """Find plate number"""
+    return render_template('findcar.html')
+
+@app.route('/cars')
+def RetrieveCars():
+   """Display list of all cars"""
+   cars = CarModel.query.all()
+   return render_template('carlist.html', cars=cars)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

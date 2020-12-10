@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+		<title>Car specs</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Selected Car Specifications</h1>
+            <h3>License Plate: {{car.registration_id}}</h3>
+            <h3>Brand: {{car.brand}}</h3>
+            <h3>Model: {{car.model}}</h3>
+            <h3>Version: {{car.version}}</h3>
+            <h3>Fuel Type: {{car.fuel_type}}</h3>
+            <h3>Model Year: {{car.model_year}}</h3>
+            <h3>Engine Power: {{car.engine_power}}</h3>
+            <h3>Fuel Efficiency: {{car.fuel_efficiency}}</h3>
+            <h3>Engine Cylinders: {{car.engine_cylinders}}</h3>
+            <h3>Top Speed: {{car.top_speed}}</h3>
+            <h3>Doors: {{car.doors}}</h3>
+            <h3>Seats: {{car.minimum_seats}}</h3>
+            <h3>Axles: {{car.axles}}</h3>
+            <h3>Drive Axles: {{car.drive_axles}}</h3>
+            <br>
+            <p>Click <a href="/cars">here</a> to see all cars.</p>
+            <br>
+            <p>Click <a href="/welcome">here</a> to go to the index welcome page.</p>
+        </div>
+        {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+    </body>
+</html>
