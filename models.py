@@ -40,7 +40,7 @@ class CarModel(db.Model):
     engine_power = db.Column(db.Integer, nullable=False)
     fuel_efficiency = db.Column(db.String(80))
     engine_cylinders = db.Column(db.Integer)
-    top_speed = db.Column(db.Integer)
+    top_speed = db.Column(db.Numeric(10.2))
     doors = db.Column(db.Integer, nullable=False)
     minimum_seats = db.Column(db.Integer, nullable=False)
     axles = db.Column(db.Integer)
