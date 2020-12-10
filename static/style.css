@@ -21,18 +21,18 @@ body {
   	padding: 20px 0 20px 0;
   	border-bottom: 1px solid #dee0e4;
 }
-.login .links, .register .links {
+.login .links, .register .links, .car .links {
   	display: flex;
   	padding: 0 15px;
 }
-.login .links a, .register .links a {
+.login .links a, .register .links a, .car .links a {
   	color: #adb2ba;
   	text-decoration: none;
   	display: inline-flex;
   	padding: 0 10px 10px 10px;
   	font-weight: bold;
 }
-.login .links a:hover, .register .links a:hover {
+.login .links a:hover, .register .links a:hover, .car .links a:hover {
   	color: #9da3ac;
 }
 .login .links a.active, .register .links a.active {
