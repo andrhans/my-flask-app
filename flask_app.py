@@ -51,10 +51,9 @@ def find():
     return render_template('searchcar.html')
 
 @app.route('/cars')
-def RetrieveCars():
-   """Display list of all cars"""
-   cars = CarModel.query.all()
-   return render_template('carlist.html', cars=cars)
+def List():
+#   cars = CarModel.query.filter_by(registration_id=id).first()
+   return render_template('dummycar.html')#, cars=cars)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

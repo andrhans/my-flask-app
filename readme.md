@@ -6,10 +6,11 @@ This is a very simple (hopefuly not broken) web app constructed in Python and ho
 
 further implementation can concern:
 * multilogin ?
-* create relationship table of cars and users - Who searched what license plate?
+* create relationship between table of cars and users - Who searched what license plate?
 * clean up of useless code
 * implementation of 'good practices' within Flask architecture
 * Search by VIN number
 * Database redesign on models.py
 * Notifications
 * ideas that don't fall into the proof-of-concept prototype
+* further implementation of API call with advanced parameters

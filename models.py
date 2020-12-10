@@ -63,4 +63,4 @@ class CarModel(db.Model):
         self.drive_axles = drive_axles
 
     def __repr__(self):
-        return '<CarModel %r>' % self.registration_id
+        return f"{self.registration_id}"
