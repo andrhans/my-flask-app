@@ -9,46 +9,65 @@
     <body>
         <div class="container">
            <h3>Car List</h3>
-            <table border="1" padding = "5">
-                <thead>
-                    <tr>
+            <table width="100%">
+                {% for car in cars %}
+                <tr>
                     <th>License Plate</th>
+                    <td>{{car.registration_id}}</td>
+                </tr>
+                <tr>
                     <th>Brand</th>
+                    <td>{{car.brand}}</td>
+                </tr>
+                <tr>
                     <th>Model</th>
+                    <td>{{car.model}}</td>
+                </tr>
+                <tr>
                     <th>Version</th>
+                    <td>{{car.version}}</td>
+                </tr>
+                <tr>
                     <th>Fuel Type</th>
-                    <ht>Model Year</ht>
-                    <ht>Engine Power</ht>
-                    <ht>Fuel Efficiency</ht>
-                    <ht>Engine Cylinders</ht>
-                    <ht>Top Speed</ht>
-                    <ht>Doors</ht>
-                    <ht>Seats</ht>
-                    <ht>Axles</ht>
-                    <ht>Drive Axles</ht>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {% for car in cars %}
-                    <tr>
-                        <td>{{car.registration_id}}</td>
-                        <td>{{car.brand}}</td>
-                        <td>{{car.model}}</td>
-                        <td>{{car.version}}</td>
-                        <td>{{car.fuel_type}}</td>
-                        <td>{{car.model_year}}</td>
-                        <td>{{car.engine_power}}</td>
-                        <td>{{car.fuel_efficiency}}</td>
-                        <td>{{car.engine_cylinders}}</td>
-                        <td>{{car.top_speed}}</td>
-                        <td>{{car.doors}}</td>
-                        <td>{{car.minimum_seats}}</td>
-                        <td>{{car.axles}}</td>
-                        <td>{{car.drive_axles}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
+                    <td>{{car.fuel_type}}</td>
+                </tr>
+                <tr>
+                    <th>Model Year</th>
+                    <td>{{car.model_year}}</td>
+                </tr>
+                <tr>
+                    <th>Engine Power</th>
+                    <td>{{car.engine_power}}</td>
+                </tr>
+                <tr>
+                    <th>Fuel Efficiency</th>
+                    <td>{{car.fuel_efficiency</td>
+                </tr>
+                <tr>
+                    <th>Engine Cylinders</th>
+                    <td>{{car.engine_cylinders}}</td>
+                </tr>
+                <tr>
+                    <th>Top Speed</th>
+                    <td>{{car.top_speed}}</td>
+                </tr>
+                <tr>
+                    <th>Number of doors</th>
+                    <td>{{car.doors}}</td>
+                </tr>
+                <tr>
+                    <th>Number of seats</th>
+                    <td>{{car.minimum_seats}}</td>
+                </tr>
+                <tr>
+                    <th>Axles</th>
+                    <td>{{car.axles}}</td>
+                </tr>
+                <tr>
+                    <th>Drive Axles</th>
+                    <td>{{car.drive_axles}}</td>
+                </tr>
+                {% endfor %}
             </table>
             <p>Click <a href="{{url_for('find')}}">here</a> to find a car.</p>
             <br>
