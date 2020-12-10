@@ -50,10 +50,19 @@ def find():
     """Find plate number"""
     return render_template('searchcar.html')
 
+@app.route('/dummycar')
+def dummycar():
+    return render_template('dummycar.html')
+
+#@app.route('/car/<id>')
+#def car(car):
+#    car = CarModel.query.filter_by(registration_id=id).first()
+#    return render_template('createcar.html', car=car)
+
 @app.route('/cars')
 def List():
-#   cars = CarModel.query.filter_by(registration_id=id).first()
-   return render_template('dummycar.html')#, cars=cars)
+   cars = CarModel.query.all()
+   return render_template('carlist.html', cars=cars)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
