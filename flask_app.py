@@ -54,6 +54,7 @@ def find():
 def dummycar():
     return render_template('dummycar.html')
 
+# Find out what happens in this one
 #@app.route('/car/<id>')
 #def car(car):
 #    car = CarModel.query.filter_by(registration_id=id).first()
