@@ -48,7 +48,7 @@ def welcome():
 @app.route('/find')
 def find():
     """Find plate number"""
-    return render_template('findcar.html')
+    return render_template('searchcar.html')
 
 @app.route('/cars')
 def RetrieveCars():
