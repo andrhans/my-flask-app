@@ -43,10 +43,9 @@ def home():
 def welcome():
     return render_template('welcome.html')
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    """Login header signs in automatically. Fix it"""
+    """Login for registered users"""
     error = None
     if request.method == 'POST':
         if request.form['username'] != 'admin' or request.form['password'] != 'adminpass':
