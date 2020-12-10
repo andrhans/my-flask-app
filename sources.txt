@@ -1,0 +1,12 @@
+
+
+
+Login Required Decorator:
+https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/#login-required-decorator
+
+Message flashing:
+https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/
+
+MotorAPI:
+https://www.motorapi.dk/
+

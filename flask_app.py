@@ -51,17 +51,17 @@ def login():
     if request.method == 'POST':
         if request.form['username'] != 'admin' or request.form['password'] != 'adminpass':
             error = 'Invalid Credentials. Please try again.'
-        else:
-            session['logged_in'] = True
-            flash('You were logged in')
-            return redirect(url_for('home'))
-    return render_template('login.html', error=error)
 
-#   CAN'T MAKE THIS WORK!
+#   CAN'T MAKE THIS WORK WITH DATABASE! LOOK IT UP
 #        user = UserModel.query.filter_by(username=username, password=password).all()
 #        if user is not None:
 #            login_user(user)
-#            return redirect('/profile')
+
+        else:
+            session['logged_in'] = True
+            flash('You are now logged in!')
+            return redirect(url_for('home'))
+    return render_template('login.html', error=error)
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
