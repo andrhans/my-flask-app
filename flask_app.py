@@ -75,7 +75,6 @@ def login():
         user = UserModel.query.filter_by(username=username, password=password).one()
         if user is None:
            error= ' Incorrect username or password. Please try again.'
-
         else:
             session['logged_in'] = True
             flash('You are now logged in!')
