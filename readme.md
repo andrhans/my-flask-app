@@ -11,7 +11,9 @@ further implementation can concern:
 * database redesign on models.py?
 * notifications
 * further implementation of API call with advanced parameters
+<<<<<<< HEAD
     * Requires search for vin number?
     * Implementation of the RegEx (re) module
 * Utilization of cursors to handle queries easier??
-    * https://realpython.com/prevent-python-sql-injection/
+* Utilization of cursors to handle queries easier?
+* ideas that don't fall into the proof-of-concept prototype
