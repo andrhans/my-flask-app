@@ -8,9 +8,12 @@
     </head>
     <body>
         <div class="container">
-           <h3>Car List</h3>
-            <table width="100%">
+           <h1>Car Database</h1>
+           <h2>Car list of registered cars</h2>
+           <p>Here are the basic specifications of all cars present in the database:</p>
+            <table width="50%">
                 {% for car in cars %}
+                <h3>Car ID: {{car.id}}</h3>
                 <tr>
                     <th>License Plate</th>
                     <td>{{car.registration_id}}</td>
@@ -71,10 +74,12 @@
             </table>
             <p>Click <a href="{{url_for('find')}}">here</a> to find a car.</p>
             <br>
-            <p>Click <a href="/welcome">here</a> to go to the index welcome page.</p>
+            <p>Click <a href="{{url_for('home')}}">here</a> to go to the index page.</p>
         </div>
         {% for message in get_flashed_messages() %}
-            {{ message }}
+            <div class="message">
+                {{ message }}
+            </div>
         {% endfor %}
     </body>
 </html>

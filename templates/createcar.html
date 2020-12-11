@@ -9,6 +9,7 @@
     <body>
         <div class="container">
             <table width="100%">
+                {% for car in car %}
                 <tr>
                     <th>License Plate</th>
                     <td>{{car.registration_id}}</td>
@@ -66,13 +67,16 @@
                     <td>{{car.drive_axles}}</td>
                 </tr>
             </table>
+
             <br>
             <p>Click <a href="/cars">here</a> to see all cars.</p>
             <br>
-            <p>Click <a href="/welcome">here</a> to go to the index welcome page.</p>
+            <p>Click <a href="{{url_for('home')}}">here</a> to go to the index welcome page.</p>
         </div>
         {% for message in get_flashed_messages() %}
-            {{ message }}
+            <div class="message">
+                {{ message }}
+            </div>
         {% endfor %}
     </body>
 </html>

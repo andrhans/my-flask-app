@@ -28,7 +28,9 @@
             </div>
         {% endif %}
         {% for message in get_flashed_messages() %}
-            {{ message }}
+            <div class="message">
+                {{ message }}
+            </div>
         {% endfor %}
 	</body>
 </html>

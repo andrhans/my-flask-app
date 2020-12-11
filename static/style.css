@@ -6,7 +6,7 @@
 }
 body {
   	background-color: #6aa665;
-  	margin: 0;
+  	margin: 10px;
 }
 .login, .register, .car{
   	width: 400px;
@@ -144,7 +144,7 @@ body.loggedin {
 	padding: 5px;
 	margin: 0 0 10px 0;
 }
-.error {
+.error, .message {
     width: 400px;
     background-color: #e68b99;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
@@ -154,6 +154,7 @@ body.loggedin {
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  align-content: center;
 }
 th, td {
   padding: 5px;

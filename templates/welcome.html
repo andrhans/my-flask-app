@@ -4,16 +4,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-		<title>Welcome</title>
+		<title>You are leaving...</title>
     </head>
     <body>
         <div class="container">
-            <h1>Welcome to the Car App</h1>
+            <h1>You are leaving the app...</h1>
             <br>
             <p>Click <a href="/">here</a> to go home.</p>
         </div>
         {% for message in get_flashed_messages() %}
-            {{ message }}
+            <div class="message">
+                {{ message }}
+            </div>
         {% endfor %}
     </body>
 </html>

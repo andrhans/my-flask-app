@@ -4,11 +4,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-		<title>Car specs</title>
+		<title>Car specifications (manual input)</title>
     </head>
     <body>
+        <h1>Car Search Results:</h1>
         <div class="container">
-            <table width="100%">
+            <table width="50%">
                 <tr>
                     <th>License Plate</th>
                     <td>AB12345</td>
@@ -69,10 +70,12 @@
             <br>
             <p>Click <a href="/cars">here</a> to see all cars.</p>
             <br>
-            <p>Click <a href="/welcome">here</a> to go to the index welcome page.</p>
+            <p>Click <a href={{url_for('home')}}>here</a> to go to the index welcome page.</p>
         </div>
         {% for message in get_flashed_messages() %}
-            {{ message }}
+            <div class="message">
+                {{ message }}
+            </div>
         {% endfor %}
     </body>
 </html>
