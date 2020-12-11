@@ -21,7 +21,7 @@ class UserModel(db.Model):
         self.email = email
 
     def __repr__(self):
-        return '<UserModel %r>' % self.username
+        return "<UserModel(username='%s', password='%s', cvr='%s', email='%s')>" % ( self.username, self.password, self.cvr, self.email)
 
 @login.user_loader
 def load_user(id):
@@ -63,5 +63,5 @@ class CarModel(db.Model):
         self.drive_axles = drive_axles
 
     def __repr__(self):
-        return f"{self.registration_id}"
+        return "<CarModel(registration_id='%s')>" (self.registration_id)
 

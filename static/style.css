@@ -144,11 +144,19 @@ body.loggedin {
 	padding: 5px;
 	margin: 0 0 10px 0;
 }
-.error, .message {
+.error {
     width: 400px;
     background-color: #e68b99;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 100px auto;
+}
+
+.message {
+    width: 400px;
+    background-color: #11FF58;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 100px auto;
+}
 }
 
 table, th, td {

@@ -55,11 +55,10 @@ def dummycar():
     return render_template('dummycar.html')
 
 # Find out what happens in this one
-@app.route('/car/1')
-def car(id):
-    registration_id = 'AB12345'
-    car = CarModel.query.filter_by(registration_id=registration_id).first()
-    return render_template('createcar.html', car=car)
+#@app.route('/car/<registration_id>')
+#def car(registration_id):
+#    cars = CarModel.query.filter_by(registration_id=registration_id).first()
+#    return render_template('createcar.html', cars=cars)
 
 @app.route('/cars')
 def list():
@@ -74,10 +73,11 @@ def login():
         if request.form['username'] != 'admin' or request.form['password'] != 'adminpass':
             error = ' Invalid Credentials. Please try again.'
 
-#   CAN'T MAKE THIS WORK WITH DATABASE! LOOK IT UP
-#        user = UserModel.query.filter_by(username=username).first()
-#        if user is None or not user.check_password(password):
-#            return user
+#       username = request.form['username']
+#       password = request.form['password']
+#       user = UserModel.query.select(username=username, password=password).first()
+#        if user is None:
+#           error= ' Incorrect username or password. Please try again.'
 
         else:
             session['logged_in'] = True
