@@ -29,6 +29,13 @@ https://pythonbasics.org/flask-http-methods/
 * Flask Login Required Decorator:
 https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/#login-required-decorator
 
+* Postman investigation
+https://learning.postman.com/docs/writing-scripts/script-references/test-examples/
+
+* Json
+https://pythonbasics.org/json/
+https://www.digitalocean.com/community/tutorials/processing-incoming-request-data-in-flask
+
 * Login with flask, python and mysql:
 https://codeshack.io/login-system-python-flask-mysql/
 
