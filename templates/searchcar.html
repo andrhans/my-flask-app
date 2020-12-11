@@ -14,11 +14,11 @@
     			<a href="{{ url_for('home') }}">Index</a>
 				<a href="{{ url_for('list') }}">See All</a>
 	        </div>
-			<form action="{{ url_for('find') }}" method="GET">
+			<form action="{{ url_for('fcar') }}" method="POST">
 			    <label for="car">
 					<i class="fas fa-car"></i>
 				</label>
-			    <input type="text" name="license_plate" placeholder= "License Plate" id="license_plate" required>
+			    <input type="text" name="plate" placeholder= "License Plate" id="plate" required>
 			    <input type="submit" value="Search!">
 			</form>
 		</div>
