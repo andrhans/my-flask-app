@@ -17,6 +17,9 @@ https://pythonbasics.org/flask-http-methods/
 Flask Login Required Decorator:
 https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/#login-required-decorator
 
+login with flask, python and mysql:
+https://codeshack.io/login-system-python-flask-mysql/
+
 Message flashing:
 https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/
 
@@ -26,3 +29,5 @@ https://www.motorapi.dk/
 Pythonanywhere: connecting to MySQL
 https://danielcorcoranssql.wordpress.com/2019/04/24/pythonanywhere-connecting-to-mysql-creating-virtual-environment/
 
+SQL:
+https://www.w3schools.com/sql/sql_examples.asp
