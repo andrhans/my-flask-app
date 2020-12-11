@@ -13,5 +13,4 @@ further implementation can concern:
 * notifications
 * further implementation of API call with advanced parameters
 * Utilization of cursors to handle queries easier?
-    * https://realpython.com/prevent-python-sql-injection/
 * ideas that don't fall into the proof-of-concept prototype
