@@ -3,6 +3,9 @@
 * Database Design
 https://flaskage.readthedocs.io/en/latest/database_design.html
 
+* Databases and SQL
+https://www.tutorialspoint.com/python_network_programming/python_databases_and_sql.htm
+
 * Discover Flask:
 https://realpython.com/introduction-to-flask-part-2-creating-a-login-page/
 https://www.youtube.com/watch?v=_vrAjAHhUsA

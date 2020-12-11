@@ -20,5 +20,6 @@ To create the cars table:
 CREATE TABLE cars (id int(11) not null auto_increment primary key, registration_id varchar(128) not null, brand varchar(80) not null, model varchar(80) not null, version varchar(128) not null, fuel_type varchar(80) not null, model_year int(4) not null, engine_power int(3) not null, fuel_efficiency varchar(80) not null, engine_cylinders int(11) not null, top_speed decimal(10,2) not null, doors int(1) not null, minimum_seats int(1) not null, axles int(1) not null, drive_axles int(1) not null);
 
 Insert dummy car:
-INSERT INTO cars (registration,brand,model,version,fuel_type,model_year,engine_power,fuel_efficiency,engine_cylinders,top_speed,doors,minimum_seats,axles,drive_axles) VALUES('AB12345','RENAULT','Captur','dCi 90','Diesel','2013','66','27.8','4','171','4','5','2','1');
+INSERT INTO cars (registration_id,brand,model,version,fuel_type,model_year,engine_power,fuel_efficiency,engine_cylinders,top_speed,doors,minimum_seats,axles,drive_axles) VALUES('AB12345','RENAULT','Captur','dCi 90','Diesel','2013','66','27.8','4','171','4','5','2','1');
+INSERT INTO cars (registration_id,brand,model,version,fuel_type,model_year,engine_power,fuel_efficiency,engine_cylinders,top_speed,doors,minimum_seats,axles,drive_axles) VALUES('BX84828','MAZDA','MX-5','2.0 SKYACTIV-G 160 HK Roadster Man.','Gasoline','2015','118','14.5','4','214','2','2','2','1');
 
