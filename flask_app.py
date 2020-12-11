@@ -37,13 +37,8 @@ def login_required(f):
 @app.route('/')
 @login_required
 def home():
-    """Logout redirection"""
-    return render_template('index.html')
-
-@app.route('/welcome')
-def welcome():
     """Display routing possibilities"""
-    return render_template('welcome.html')
+    return render_template('index.html')
 
 @app.route('/find')
 def find():
