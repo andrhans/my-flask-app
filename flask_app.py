@@ -70,14 +70,11 @@ def login():
     """Login for registered user admin... finish research..."""
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'adminpass':
-            error = ' Invalid Credentials. Please try again.'
-
-#       username = request.form['username']
-#       password = request.form['password']
-#       user = UserModel.query.select(username=username, password=password).first()
-#        if user is None:
-#           error= ' Incorrect username or password. Please try again.'
+        username = request.form['username']
+        password = request.form['password']
+        user = UserModel.query.filter_by(username=username, password=password).one()
+        if user is None:
+           error= ' Incorrect username or password. Please try again.'
 
         else:
             session['logged_in'] = True
