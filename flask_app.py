@@ -2,8 +2,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 from functools import wraps
 from models import login, db, UserModel, CarModel
-import re
-import urllib.request
+from urllib import request
 import json
 
 app = Flask(__name__)
