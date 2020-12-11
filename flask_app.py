@@ -54,7 +54,8 @@ def fcar():
         api_token = 'pnW5hV7uOqj0PoScLJe1qKVoavT6fJc1Jvw0iGdvaYNzv4riuaGE8HvJx1EYoit8'
         url = "http://api.nrpla.de/"+license+"?api_token="+api_token
         r = requests.get(url)
-        error = print(r.text)
+        r = requests.get(url).json()
+        error = print(r)
     else:
         error = 'Unknown error'
     return render_template('searchcar.html', error=error)
