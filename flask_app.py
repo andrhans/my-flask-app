@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 from functools import wraps
 from models import login, db, UserModel, CarModel
+import requests
 
 app = Flask(__name__)
 
@@ -42,7 +43,11 @@ def home():
 
 @app.route('/find')
 def find():
-    """Find plate number"""
+    """Find plate number with call to API"""
+#
+#       API REQUEST CODE HERE!
+#
+#
     return render_template('searchcar.html')
 
 @app.route('/dummycar')
