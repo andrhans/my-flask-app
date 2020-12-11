@@ -160,10 +160,22 @@ body.loggedin {
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 2px solid black;
   border-collapse: collapse;
   align-content: center;
+  width: 50%;
 }
+
+table {
+    border-spacing: 0 15px;
+}
+
+
+table .cars {
+    background-color: #B6F2B6;
+    font-size: larger;
+}
+
 th, td {
   padding: 5px;
   text-align: left;
