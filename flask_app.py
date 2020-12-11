@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, session, url_for, f
 from functools import wraps
 from models import login, db, UserModel, CarModel
 import requests
+import json
 
 app = Flask(__name__)
 
@@ -43,22 +44,24 @@ def home():
 
 @app.route('/find')
 def find():
-    """Find plate number with call to API"""
-#
-#       API REQUEST CODE HERE!
-#
-#
     return render_template('searchcar.html')
+
+@app.route('/find-car', methods=['GET', 'POST'])
+def fcar():
+    """Find plate number with call to API"""
+    if request.method == 'POST':
+        license = request.form['plate']
+        api_token = 'pnW5hV7uOqj0PoScLJe1qKVoavT6fJc1Jvw0iGdvaYNzv4riuaGE8HvJx1EYoit8'
+        url = "http://api.nrpla.de/"+license+"?api_token="+api_token
+        r = requests.get(url)
+        error = print(r.text)
+    else:
+        error = 'Unknown error'
+    return render_template('searchcar.html', error=error)
 
 @app.route('/dummycar')
 def dummycar():
     return render_template('dummycar.html')
-
-# Find out what happens in this one
-#@app.route('/car/<registration_id>')
-#def car(registration_id):
-#    cars = CarModel.query.filter_by(registration_id=registration_id).first()
-#    return render_template('createcar.html', cars=cars)
 
 @app.route('/cars')
 def list():
