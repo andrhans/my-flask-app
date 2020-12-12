@@ -87,7 +87,7 @@ def fcar():
 
             flash('Car data saved')
 
-            fcar=CarModel.query.filter_by(registration_id=registration_id).one()
+            fcar=CarModel.query.filter_by(registration_id=registration_id).filter()
             return render_template('fcar.html', cars=fcar)
         else:
             error='The plate does not belong to a car'
