@@ -112,7 +112,7 @@ def login():
     if request.method=='POST':
         username=request.form['username']
         password=request.form['password']
-        user=UserModel.query.filter_by(username=username, password=password).one()
+        user=UserModel.query.filter_by(username=username, password=password).filter()
         if user is None:
            error=' Incorrect username or password. Please try again.'
         else:
