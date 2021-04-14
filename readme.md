@@ -1,3 +1,5 @@
+*this project is archived*
+
 # PROGRAMMING PROJECT: CAR WEB APP
 
 Simple app which can and will possibly be developed further.
